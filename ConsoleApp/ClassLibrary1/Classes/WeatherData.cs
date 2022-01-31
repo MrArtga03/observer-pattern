@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace ClassLibrary1.Classes
 {
-    public class ConcreteSubject : ISubject
+    public class WeatherData : ISubject
     {
         List<IObserver> observers = new List<IObserver> { };
 
@@ -31,6 +31,11 @@ namespace ClassLibrary1
         {
             get { return state; }
             set { state = value; this.NotifyObserver(); }
+        }
+
+        void MeasurementsChanged()
+        {
+            NotifyObserver();
         }
     }
 }
